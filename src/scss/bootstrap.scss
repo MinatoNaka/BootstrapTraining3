@@ -1,1 +1,19 @@
+$custom-green: #3e8691;
+$custom-yellow: #ffcd44;
+$custom-offwhite: #fffefc;
+$custom-brown: #60605a;
+$custom-purple: #5c51a0;
+
+$theme-colors: (
+        "custom-green": $custom-green,
+        "custom-yellow": $custom-yellow,
+        "custom-offwhite": $custom-offwhite,
+        "custom-brown": $custom-brown,
+        "custom-purple": $custom-purple,
+);
+
+
+$link-color: $custom-brown;
+$component-active-bg: $custom-green;
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
