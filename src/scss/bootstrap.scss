@@ -3,6 +3,7 @@ $custom-yellow: #ffcd44;
 $custom-offwhite: #fffefc;
 $custom-brown: #60605a;
 $custom-purple: #5c51a0;
+$custom-gray: #dfdedc;
 
 $theme-colors: (
         "custom-green": $custom-green,
@@ -10,8 +11,8 @@ $theme-colors: (
         "custom-offwhite": $custom-offwhite,
         "custom-brown": $custom-brown,
         "custom-purple": $custom-purple,
+        "custom-gray": $custom-gray,
 );
-
 
 $link-color: $custom-brown;
 $component-active-bg: $custom-green;
