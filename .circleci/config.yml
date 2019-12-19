@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn run prod
+      - persist_to_workspace:
+          root: .
+          paths: [ '*' ]
+  deploy:
+    working_directory: ~/repo
+    environment:
+      - AWS_S3_BUCKET_NAME: bootstrap-training-3
+    docker:
+      - image: innovatorjapan/awscli:latest
+    steps:
+      - attach_workspace:
+          at: .
+      - run: aws s3 sync . s3://${AWS_S3_BUCKET_NAME}/ --exact-timestamps --delete --exclude=".git/*" --exclude=".circleci/*" --exclude="node_modules/*"
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
